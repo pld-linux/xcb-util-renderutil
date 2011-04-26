@@ -13,7 +13,7 @@ BuildRequires:	libxcb-devel >= 1.4
 BuildRequires:	m4
 BuildRequires:	pkgconfig
 BuildRequires:	xcb-proto >= 1.6
-Conflicts:	xcb-util >= 0.3.8
+Conflicts:	xcb-util < 0.3.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
