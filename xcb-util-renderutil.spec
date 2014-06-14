@@ -1,12 +1,12 @@
 Summary:	XCB util-renderutil module
 Summary(pl.UTF-8):	Moduł XCB util-renderutil
 Name:		xcb-util-renderutil
-Version:	0.3.8
+Version:	0.3.9
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	b346ff598ee093c141f836fbc0f8f721
+# Source0-md5:	468b119c94da910e1291f3ffab91019a
 URL:		http://xcb.freedesktop.org/XcbUtil/
 BuildRequires:	gperf
 BuildRequires:	libxcb-devel >= 1.4
@@ -86,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog NEWS README
+%doc COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libxcb-render-util.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libxcb-render-util.so.0
 
