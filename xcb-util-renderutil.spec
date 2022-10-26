@@ -1,18 +1,20 @@
 Summary:	XCB util-renderutil module
 Summary(pl.UTF-8):	Moduł XCB util-renderutil
 Name:		xcb-util-renderutil
-Version:	0.3.9
-Release:	2
+Version:	0.3.10
+Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	http://xcb.freedesktop.org/dist/%{name}-%{version}.tar.bz2
-# Source0-md5:	468b119c94da910e1291f3ffab91019a
-URL:		http://xcb.freedesktop.org/XcbUtil/
+Source0:	https://xcb.freedesktop.org/dist/%{name}-%{version}.tar.xz
+# Source0-md5:	193b890e2a89a53c31e2ece3afcbd55f
+URL:		https://xcb.freedesktop.org/XcbUtil/
 BuildRequires:	gperf
 BuildRequires:	libxcb-devel >= 1.4
 BuildRequires:	m4
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xcb-proto >= 1.6
+BuildRequires:	xz
 Conflicts:	xcb-util < 0.3.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -78,6 +80,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libxcb-render-util.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -86,14 +91,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog NEWS README
+%doc COPYING ChangeLog NEWS README.md
 %attr(755,root,root) %{_libdir}/libxcb-render-util.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libxcb-render-util.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libxcb-render-util.so
-%{_libdir}/libxcb-render-util.la
 %{_includedir}/xcb/xcb_renderutil.h
 %{_pkgconfigdir}/xcb-renderutil.pc
 
